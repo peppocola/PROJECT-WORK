@@ -18,14 +18,11 @@ RESET
   box-sizing:border-box;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   font-family:"Manrope", sans-serif;
   background:var(--bg);
   color:#1b1c1c;
+  overflow-x:hidden;
 }
 
 /* =========================
@@ -113,14 +110,12 @@ BOTTONI
 ========================= */
 
 .btn{
-  display:inline-block;
   background:var(--green);
   color:white;
   padding:10px 20px;
   border:none;
   border-radius:10px;
   cursor:pointer;
-  text-decoration:none;
 }
 
 .cta{
@@ -132,6 +127,14 @@ BOTTONI
   text-decoration:none;
   font-weight:700;
   margin-top:25px;
+}
+
+.btn-outline{
+  padding:16px 30px;
+  border-radius:12px;
+  border:2px solid var(--green);
+  background:white;
+  color:var(--green);
 }
 
 /* =========================
@@ -279,13 +282,6 @@ IMPATTO
   font-size:22px;
   margin-bottom:15px;
   color:var(--green);
-}
-
-.stat-number{
-  font-family:"Noto Serif", serif;
-  font-size:36px;
-  font-weight:700;
-  margin-bottom:8px;
 }
 
 /* =========================
@@ -453,60 +449,7 @@ DOCUMENTI (NUOVA SEZIONE)
 }
 
 /* =========================
-CONTATTI
-========================= */
-
-.contact-section{
-  background:#fff;
-}
-
-.contact-cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-  max-width:900px;
-  margin:0 auto;
-}
-
-.contact-card{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  background:#f6f3f2;
-  border-radius:18px;
-  padding:40px 30px;
-  text-decoration:none;
-  transition:0.3s;
-  border:1px solid #e7e3e1;
-}
-
-.contact-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 30px rgba(0,0,0,0.08);
-}
-
-.contact-icon{
-  font-size:30px;
-  margin-bottom:14px;
-}
-
-.contact-label{
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#888;
-  margin-bottom:8px;
-}
-
-.contact-value{
-  font-size:16px;
-  font-weight:600;
-  color:#2c1818;
-}
-
-/* =========================
-FOOTER 3 COLONNE
+FOOTER 3 COLONNE 
 ========================= */
 
 .footer{
@@ -576,114 +519,181 @@ FOOTER 3 COLONNE
   white-space:nowrap; /* 🔥 FIX ANNO SU UNA RIGA */
 }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .footer-container{
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:20px;
-  }
-
-  .footer-right{
-    text-align:center;
-  }
-}
-
 /* =========================
 RESPONSIVE
 ========================= */
 
 @media(max-width:900px){
 
-.section{
-  padding:80px 40px;
-}
+  /* layout sezioni */
+  .section{
+    padding:60px 24px;
+  }
 
-.stats,.pillars{
-  grid-template-columns:1fr 1fr;
-}
+  .targets,
+  .pillars-section,
+  .docs{
+    padding:60px 24px;
+  }
 
-.hero h1{
-  font-size:45px;
-}
+  /* navbar */
+  .navbar{
+    height:auto;
+    flex-wrap:wrap;
+    padding:14px 20px;
+    gap:8px;
+  }
 
-.hero{
-  padding-left:40px;
-}
+  .navbar nav{
+    order:3;
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
 
-.docs-box{
-  grid-template-columns:1fr;
-  text-align:center;
-}
+  /* chi siamo */
+  .grid{
+    grid-template-columns:1fr;
+  }
 
-.docs-downloads{
-  align-items:center;
-}
+  .image-box img{
+    max-width:100%;
+    height:280px;
+  }
 
-.doc-card{
-  width:100%;
-  max-width:400px;
-}
+  /* stats e pilastri */
+  .stats,.pillars{
+    grid-template-columns:1fr 1fr;
+  }
 
-.pillars-section,
-.targets,
-.docs{
-  padding:80px 40px;
-}
+  /* hero */
+  .hero h1{
+    font-size:45px;
+  }
 
-.grid{
-  grid-template-columns:1fr;
-}
+  .hero{
+    padding-left:24px;
+    padding-right:24px;
+  }
 
-.contact-cards{
-  grid-template-columns:1fr;
-}
+  /* documenti */
+  .docs-box{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:40px;
+  }
 
-.navbar{
-  height:auto;
-  flex-wrap:wrap;
-  padding:15px 20px;
-  gap:10px;
-}
+  .docs-downloads{
+    align-items:center;
+  }
 
-.navbar nav{
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:15px;
-  order:3;
-  width:100%;
-}
+  .doc-card{
+    width:100%;
+    max-width:400px;
+  }
+
+  /* footer */
+  .footer{
+    padding:32px 20px;
+  }
+
+  .footer-container{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:16px;
+  }
+
+  .footer-left,
+  .footer-right{
+    white-space:normal;
+    text-align:center;
+  }
+
+  .footer-center a{
+    white-space:normal;
+  }
 }
 
 @media(max-width:600px){
 
-.stats,.pillars{
-  grid-template-columns:1fr;
-}
+  .stats,.pillars{
+    grid-template-columns:1fr;
+  }
 
-.hero h1{
-  font-size:38px;
-}
+  .hero h1{
+    font-size:32px;
+  }
 
-.section-title-big{
-  font-size:26px;
-}
+  .hero{
+    padding-left:20px;
+    padding-right:20px;
+  }
 
-.highlight-text{
-  font-size:26px;
-}
+  .section-title-big{
+    font-size:26px;
+    margin-bottom:30px;
+  }
+
+  .highlight-text{
+    font-size:26px;
+  }
+
+  .docs-text h2{
+    font-size:26px;
+  }
+
+  .section{
+    padding:48px 20px;
+  }
+
+  .targets,
+  .pillars-section,
+  .docs{
+    padding:48px 20px;
+  }
 }
 
 /* =========================
-DOCUMENTI - COLORI CARD
+DOCUMENTI - COLORI CARD (AGGIUNTA SENZA MODIFICHE)
 ========================= */
 
+/* CARD BASE (non cambia il resto del sito) */
+.docs .doc-card{
+  background:white;
+  padding:25px 30px;
+  border-radius:16px;
+  border:1px solid #e6e3e1;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+/* 🌿 REPORT SOSTENIBILITÀ (VERDE OLIVETO) */
 .docs .doc-card.green{
   background:#e8f3ea;
   border:1px solid #cfe7d4;
 }
 
+/* 🫒 CERTIFICAZIONE QUALITÀ (TONO OLIVA NATURALE) */
 .docs .doc-card.olive{
   background:#f2f0e6;
   border:1px solid #d9d3b8;
+}
+
+/* HOVER UNIFICATO */
+.docs .doc-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* TESTI */
+.docs .doc-title{
+  font-weight:700;
+  color:#2c1818;
+  margin-bottom:6px;
+}
+
+.docs .doc-sub{
+  font-size:13px;
+  color:#6b6b6b;
 }
